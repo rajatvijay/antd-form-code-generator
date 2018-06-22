@@ -1,0 +1,25 @@
+{
+  "name": "antd-form-code-generator",
+  "version": "1.0.0",
+  "description": "AntD compatible form code generator for react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajatvijay/antd-form-code-generator.git"
+  },
+  "keywords": [
+    "antd",
+    "form",
+    "generator",
+    "react"
+  ],
+  "author": "RAJAT VIJAY",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rajatvijay/antd-form-code-generator/issues"
+  },
+  "homepage": "https://github.com/rajatvijay/antd-form-code-generator#readme"
+}
