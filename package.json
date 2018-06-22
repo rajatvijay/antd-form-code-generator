@@ -2,9 +2,12 @@
   "name": "antd-form-code-generator",
   "version": "1.0.0",
   "description": "AntD compatible form code generator for react",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "prettier myForm.js --write",
+    "build": "babel src/index.js --out-file lib/index.js",
+    "start": "npm run build && node lib/index.js && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -21,5 +24,10 @@
   "bugs": {
     "url": "https://github.com/rajatvijay/antd-form-code-generator/issues"
   },
-  "homepage": "https://github.com/rajatvijay/antd-form-code-generator#readme"
+  "homepage": "https://github.com/rajatvijay/antd-form-code-generator#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "prettier": "^1.13.5"
+  }
 }
