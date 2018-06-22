@@ -1,33 +1,17 @@
 {
   "name": "antd-form-code-generator",
-  "version": "1.0.0",
-  "description": "AntD compatible form code generator for react",
-  "main": "lib/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "prettier myForm.js --write",
-    "build": "babel src/index.js --out-file lib/index.js",
-    "start": "npm run build && node lib/index.js && npm run lint"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rajatvijay/antd-form-code-generator.git"
-  },
-  "keywords": [
-    "antd",
-    "form",
-    "generator",
-    "react"
-  ],
-  "author": "RAJAT VIJAY",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/rajatvijay/antd-form-code-generator/issues"
-  },
-  "homepage": "https://github.com/rajatvijay/antd-form-code-generator#readme",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "prettier": "^1.13.5"
+    "prettier": "^1.13.5",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
