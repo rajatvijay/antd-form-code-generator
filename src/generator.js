@@ -35,14 +35,8 @@ export const generator = declarations => {
 const commentWrapper = codeItems =>
   `<React.Fragment>${codeItems.join ('\n\n')}</React.Fragment>`;
 
-const formatCode = codeString => {
-  const formattedCode = prettier.format (codeString, {
-    parser: 'babylon',
-    plugins: [plugins],
-  });
-  console.log (formattedCode);
-  return formattedCode;
-};
+const formatCode = codeString =>
+  prettier.format (codeString, {parser: 'babylon', plugins: [plugins]});
 
 const wrapper = declarations =>
   formatCode (commentWrapper (generator (formDeclaration)));
