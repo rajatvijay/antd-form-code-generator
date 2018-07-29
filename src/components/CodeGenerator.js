@@ -1,21 +1,21 @@
-import React, {Component, Fragment} from 'react';
-import Declarator from './Declarator';
-import CodeViewer from './CodeViewer';
-import Generator from '../generator';
+import React, { Component, Fragment } from "react";
+import Declarator from "./Declarator";
+import CodeViewer from "./CodeViewer";
+import Generator from "../core/generator";
 
 class CodeGenerator extends Component {
   state = {
-    declarations: '',
-    formCode: '',
+    declarations: "",
+    formCode: ""
   };
 
   onDeclarationsChanged = declarations => {
-    const formCode = Generator (declarations);
-    this.setState ({declarations, formCode});
+    const formCode = Generator(declarations);
+    this.setState({ declarations, formCode });
   };
 
-  render () {
-    const {declarations, formCode} = this.state;
+  render() {
+    const { declarations, formCode } = this.state;
     return (
       <Fragment>
         <Declarator
