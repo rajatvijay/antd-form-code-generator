@@ -44,7 +44,8 @@ const formatCode = codeString =>
 
 const wrapper = declarations => {
   return pipe(
-    [formDeclaration],
+    // [formDeclaration],
+    [declarations],
     generator,
     commentWrapper,
     formatCode

@@ -5,7 +5,7 @@ export const pipe = (inputs, ...args) => {
       return [output];
     }, inputs);
   } catch (err) {
-    // console.log(err);
+    console.log(err);
     throw new Error("Pipe Error");
   }
 };
