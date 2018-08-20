@@ -82,7 +82,7 @@ const wrapper = declarations => {
     generator,
     commentWrapper,
     formatCode
-  );
+  )[0];
 };
 
 export default wrapper;

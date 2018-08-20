@@ -22,7 +22,7 @@ class CodeGenerator extends Component {
   render() {
     const { declarations, formCode } = this.state;
     return (
-      <div style={{ padding: "2% 8%" }}>
+      <div style={{ padding: "2%" }}>
         <h2
           style={{
             textAlign: "center",
@@ -34,7 +34,7 @@ class CodeGenerator extends Component {
           Antd react form code generator
         </h2>
         <Row type="flex">
-          <Col span={12}>
+          <Col span={10}>
             <Declarator
               generate={this.generateFormCode}
               onChange={this.onDeclarationsChanged}
@@ -42,7 +42,7 @@ class CodeGenerator extends Component {
             />
           </Col>
           <Col
-            span={12}
+            span={14}
             style={{
               overflowX: "scroll",
               height: 500
