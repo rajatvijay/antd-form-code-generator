@@ -61,6 +61,7 @@ const generator = declarations => {
     return `\n{/** ${d.label} Field */}
       <FormItem label="${d.label}" style={${d.styles}}>
         {getFieldDecorator ('${d.valuePropName}', {
+          ${d.initialValue ? `initialValue: ${d.initialValue},` : ``}
           rules: ${JSON.stringify(d.validations)},
         }) (${fieldGenerator(d)})}
       </FormItem>`;
