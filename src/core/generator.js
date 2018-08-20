@@ -20,13 +20,22 @@ const formDeclaration = [
   }
 ];
 
+/**
+ * Validations Notes
+ * 1. Required and data type of required fields (type)
+ * 2. If optional value are present then their data type needs to be validated (props, options)
+ * 3. Options obj has varName as mandatory key
+ */
+
 const fieldGenerator = ({ field, label }) => {
   if (typeof field === "object") {
     const { type, props, options } = field;
 
-    const propsStr = Object.keys(props)
-      .map(p => `${p}="${props[p]}"`)
-      .join(" ");
+    const propsStr = props
+      ? Object.keys(props) // TODO: This will fail id the props is undefined or not an object
+          .map(p => `${p}="${props[p]}"`)
+          .join(" ")
+      : "";
 
     if (type === "Select") {
       return `<${type} ${propsStr}>{${
