@@ -6,35 +6,80 @@ import brace from "brace";
 import "brace/mode/json";
 import "brace/theme/github";
 
-const initailDeclarations = `[
-  {
-    "field": "Input",
-    "label": "E-mail",
-    "validations": [
-      {
-        "type": "email",
-        "message": "Please type a valid email"
+const initailDeclarations = JSON.stringify(
+  [
+    {
+      field: {
+        type: "Select",
+        props: {},
+        options: {
+          varName: "genders",
+          labelKey: "label",
+          valueKey: "value"
+        }
       },
-      {
-        "required": "email",
-        "message": "Please provide an email"
-      }
-    ],
-    "valuePropName": "userEmail"
-  },
-  {
-    "field": "Input",
-    "label": "Name",
-    "validations": [
-      {
-        "required": "email",
-        "message": "Please provide an email"
-      }
-    ],
-    "valuePropName": "userName"
-  }
-]`;
-
+      label: "E-mail",
+      validations: [
+        {
+          type: "email",
+          message: "Please type a valid email"
+        },
+        {
+          required: "email",
+          message: "Please provide an email"
+        }
+      ],
+      valuePropName: "userEmail"
+    },
+    {
+      field: {
+        type: "Checkbox",
+        props: {}
+      },
+      label: "E-mail",
+      validations: [
+        {
+          type: "email",
+          message: "Please type a valid email"
+        },
+        {
+          required: "email",
+          message: "Please provide an email"
+        }
+      ],
+      valuePropName: "userEmail"
+    },
+    {
+      field: "Input",
+      label: "Name",
+      validations: [
+        {
+          required: "email",
+          message: "Please provide an email"
+        }
+      ],
+      valuePropName: "userName"
+    },
+    {
+      field: {
+        type: "Input",
+        props: {
+          prefix: "$"
+        }
+      },
+      label: "Name",
+      validations: [
+        {
+          required: "email",
+          message: "Please provide an email"
+        }
+      ],
+      valuePropName: "userName"
+    }
+  ],
+  null,
+  2
+);
 class Declarator extends Component {
   state = {
     declarations: initailDeclarations

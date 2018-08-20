@@ -33,7 +33,7 @@ class CodeGenerator extends Component {
         >
           Antd react form code generator
         </h2>
-        <Row>
+        <Row type="flex">
           <Col span={12}>
             <Declarator
               generate={this.generateFormCode}
@@ -41,7 +41,13 @@ class CodeGenerator extends Component {
               declarations={declarations}
             />
           </Col>
-          <Col span={12}>
+          <Col
+            span={12}
+            style={{
+              overflowX: "scroll",
+              height: 500
+            }}
+          >
             <CodeViewer formCode={formCode} />
           </Col>
         </Row>
