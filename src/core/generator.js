@@ -20,7 +20,30 @@ const formDeclaration = [
   }
 ];
 
-const fieldGenerator = ({ field }) => {
+const fieldGenerator = ({ field, label }) => {
+  if (typeof field === "object") {
+    const { type, props, options } = field;
+
+    const propsStr = Object.keys(props)
+      .map(p => `${p}="${props[p]}"`)
+      .join(" ");
+
+    if (type === "Select") {
+      return `<${type} ${propsStr}>{${
+        options.varName
+      }.map(o => <Option key={o.${options.reactKey ||
+        "id"}} value={o.${options.valueKey || "value"}}>{o.${options.labelKey ||
+        "label"}}</Option>)}</${type}>`;
+    }
+
+    if (type === "Input") {
+      return `<${type} ${propsStr} />`;
+    }
+
+    if (type === "Checkbox") {
+      return `<${type} ${propsStr}>${label}</${type}>`;
+    }
+  }
   return `<${field} />`;
 };
 
