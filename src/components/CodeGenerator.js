@@ -1,8 +1,9 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import Declarator from "./Declarator";
 import CodeViewer from "./CodeViewer";
 import Generator from "../core/generator";
-import { Row, Col } from "antd";
+import { Row, Col, Button, message } from "antd";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 class CodeGenerator extends Component {
   state = {
@@ -41,14 +42,25 @@ class CodeGenerator extends Component {
               declarations={declarations}
             />
           </Col>
-          <Col
-            span={14}
-            style={{
-              overflowX: "scroll",
-              height: 500
-            }}
-          >
-            <CodeViewer formCode={formCode} />
+          <Col span={14}>
+            <div
+              style={{
+                overflowX: "scroll",
+                height: 500
+              }}
+            >
+              <CodeViewer formCode={formCode} />
+            </div>
+            {formCode ? (
+              <CopyToClipboard
+                text={formCode}
+                onCopy={() => message.success("Copied!")}
+              >
+                <Button style={{ marginTop: 20, width: 150 }} size="large">
+                  Click to Copy
+                </Button>
+              </CopyToClipboard>
+            ) : null}
           </Col>
         </Row>
       </div>

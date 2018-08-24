@@ -2,23 +2,23 @@ import prettier from "prettier/standalone";
 import plugins from "prettier/parser-babylon";
 import { pipe } from "../common/utils";
 
-const formDeclaration = [
-  {
-    field: "Input",
-    label: "E-mail",
-    validations: [
-      { type: "email", message: "Please type a valid email" },
-      { required: "email", message: "Please provide an email" }
-    ],
-    valuePropName: "userEmail"
-  },
-  {
-    field: "Input",
-    label: "Name",
-    validations: [{ required: "email", message: "Please provide an email" }],
-    valuePropName: "userName"
-  }
-];
+// const formDeclaration = [
+//   {
+//     field: "Input",
+//     label: "E-mail",
+//     validations: [
+//       { type: "email", message: "Please type a valid email" },
+//       { required: "email", message: "Please provide an email" }
+//     ],
+//     valuePropName: "userEmail"
+//   },
+//   {
+//     field: "Input",
+//     label: "Name",
+//     validations: [{ required: "email", message: "Please provide an email" }],
+//     valuePropName: "userName"
+//   }
+// ];
 
 /**
  * Validations Notes

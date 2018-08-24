@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Button } from "antd";
 import AceEditor from "react-ace";
-import brace from "brace";
+import brace from "brace"; // eslint-disable-line no-unused-vars
 
 import "brace/mode/json";
 import "brace/theme/github";
