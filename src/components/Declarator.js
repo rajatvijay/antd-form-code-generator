@@ -25,7 +25,7 @@ const initailDeclarations = JSON.stringify(
           message: "Please type a valid email"
         },
         {
-          required: "email",
+          required: true,
           message: "Please provide an email"
         }
       ],
@@ -43,7 +43,7 @@ const initailDeclarations = JSON.stringify(
           message: "Please type a valid email"
         },
         {
-          required: "email",
+          required: true,
           message: "Please provide an email"
         }
       ],
@@ -54,7 +54,7 @@ const initailDeclarations = JSON.stringify(
       label: "Name",
       validations: [
         {
-          required: "email",
+          required: true,
           message: "Please provide an email"
         }
       ],
@@ -70,7 +70,7 @@ const initailDeclarations = JSON.stringify(
       label: "Name",
       validations: [
         {
-          required: "email",
+          required: true,
           message: "Please provide an email"
         }
       ],

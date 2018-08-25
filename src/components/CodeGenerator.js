@@ -4,10 +4,12 @@ import CodeViewer from "./CodeViewer";
 import Generator from "../core/generator";
 import { Row, Col, Button, message } from "antd";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import ErrorDisplay from "./ErrorDisplayer";
 
 class CodeGenerator extends Component {
   state = {
-    formCode: ""
+    formCode: "",
+    errors: []
   };
 
   // onDeclarationsChanged = declarations => {
@@ -16,12 +18,21 @@ class CodeGenerator extends Component {
   // };
 
   generateFormCode = declarations => {
-    const formCode = Generator(declarations);
-    this.setState({ formCode });
+    const { isValid, errors, code: formCode } = Generator(declarations);
+
+    if (isValid) {
+      return this.setState({ formCode });
+    }
+
+    window.scrollTo({
+      top: 10000000000, // Some randomly big number
+      behavior: "smooth"
+    });
+    return this.setState({ errors });
   };
 
   render() {
-    const { declarations, formCode } = this.state;
+    const { declarations, formCode, errors } = this.state;
     return (
       <div style={{ padding: "2%" }}>
         <h2
@@ -63,6 +74,7 @@ class CodeGenerator extends Component {
             ) : null}
           </Col>
         </Row>
+        <ErrorDisplay errors={errors} />
       </div>
     );
   }

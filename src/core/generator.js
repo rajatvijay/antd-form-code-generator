@@ -1,38 +1,14 @@
 import prettier from "prettier/standalone";
 import plugins from "prettier/parser-babylon";
 import { pipe } from "../common/utils";
-
-// const formDeclaration = [
-//   {
-//     field: "Input",
-//     label: "E-mail",
-//     validations: [
-//       { type: "email", message: "Please type a valid email" },
-//       { required: "email", message: "Please provide an email" }
-//     ],
-//     valuePropName: "userEmail"
-//   },
-//   {
-//     field: "Input",
-//     label: "Name",
-//     validations: [{ required: "email", message: "Please provide an email" }],
-//     valuePropName: "userName"
-//   }
-// ];
-
-/**
- * Validations Notes
- * 1. Required and data type of required fields (type)
- * 2. If optional value are present then their data type needs to be validated (props, options)
- * 3. Options obj has varName as mandatory key
- */
+import { validateSchema } from "./validator";
 
 const fieldGenerator = ({ field, label }) => {
   if (typeof field === "object") {
     const { type, props, options } = field;
 
     const propsStr = props
-      ? Object.keys(props) // TODO: This will fail id the props is undefined or not an object
+      ? Object.keys(props)
           .map(p => `${p}="${props[p]}"`)
           .join(" ")
       : "";
@@ -76,13 +52,19 @@ const formatCode = codeString =>
   prettier.format(codeString, { parser: "babylon", plugins: [plugins] });
 
 const wrapper = declarations => {
-  return pipe(
-    // [formDeclaration],
-    [declarations],
-    generator,
-    commentWrapper,
-    formatCode
-  )[0];
+  const { status: isValid, errors } = validateSchema(declarations);
+
+  let code;
+  if (isValid) {
+    code = pipe(
+      [declarations],
+      generator,
+      commentWrapper,
+      formatCode
+    )[0];
+  }
+
+  return { isValid, errors, code };
 };
 
 export default wrapper;
