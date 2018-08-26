@@ -1,5 +1,5 @@
-### Live link
-[Play here](http://antd-form.surge.sh/)
+# antd-form-code-generator
+Live link: [Play here](http://antd-form.surge.sh/)
 
 ### Philosophy
 antd-form-code-generator is a code generator using JSON schemas. This tool is not intended to be used inside a project’s code to generate form at runtime, rather at development time to automate form code generation for long forms.
